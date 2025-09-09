@@ -36,4 +36,13 @@ process.on("SIGINT",()=>{
   server.close(pool.end)
   process.exit(0)
 })
-process.on()
+
+process.on("SIGTERM",()=>{
+  server.close((error) =>{
+    if(error){
+      console.log(error)
+      process.exit(0)
+    }
+    process.exit(0)
+  })
+})
