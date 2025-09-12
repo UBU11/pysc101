@@ -1,19 +1,22 @@
 import { serve } from "@hono/node-server";
 import "dotenv/config";
 import { Hono } from "hono";
-import { Pool } from "pg";
+import client from "./DB/db.js";
+import { createTable, getData } from "./DB/user.js";
 
-const app = new Hono().basePath("/api");
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL!,
-  ssl: true,
-});
+const app = new Hono({
+  strict: false,
+})
 
 app.get("/home", async (c) => {
-  const client = await pool.connect();
   try {
-    const { rows } = await client.query("SELECT version()");
-    return c.json({ version: rows[0].version });
+    createTable()
+
+    getData()
+
+
+      return c.text("Sql")
+
   } catch (error) {
     console.error("Database query failed:", error);
     return c.text("Failed to connect to database", 500);
@@ -23,26 +26,13 @@ app.get("/home", async (c) => {
 });
 
 app.notFound((c) => {
-  return c.text("Custom 404 Message", 404);
-});
-
-const server = serve({
-  fetch: app.fetch,
-  port: 5000,
+  return c.text("Error:404 ", 404);
 });
 
 
-process.on("SIGINT",()=>{
-  server.close(pool.end)
-  process.exit(0)
-})
 
-process.on("SIGTERM",()=>{
-  server.close((error) =>{
-    if(error){
-      console.log(error)
-      process.exit(1)
-    }
-    process.exit(0)
-  })
-})
+
+serve(app)
+console.log(`Server is running on port 3000 http://localhost:3000/home`)
+
+
