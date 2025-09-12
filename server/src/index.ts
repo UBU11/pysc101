@@ -2,7 +2,7 @@ import { serve } from "@hono/node-server";
 import "dotenv/config";
 import { Hono } from "hono";
 import client from "./DB/db.js";
-import { createTable, getData } from "./DB/user.js";
+import { createTable, getData,insertData } from "./DB/user.js";
 
 const app = new Hono({
   strict: false,
@@ -11,7 +11,7 @@ const app = new Hono({
 app.get("/home", async (c) => {
   try {
     createTable()
-
+    insertData("user","email@1234","password123")
     getData()
 
 
