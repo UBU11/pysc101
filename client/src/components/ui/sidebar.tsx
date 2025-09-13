@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -722,5 +723,6 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
+  /* eslint-disable react-refresh/only-export-components */
   useSidebar,
-}
+};
