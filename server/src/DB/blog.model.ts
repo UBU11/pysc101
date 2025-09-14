@@ -15,6 +15,8 @@ async function blogTable() {
       updated_at timestamp with time zone default current_timezone */
       )`
     );
+
+    console.log("Table created successfully", result);
   } catch (error) {
     console.error("Database query failed:", error);
   }
