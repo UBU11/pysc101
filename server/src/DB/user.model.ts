@@ -1,7 +1,7 @@
 import client from "./db.js";
 
-async function createTable(){
-  try{
+async function createTable() {
+  try {
     const result = await client.query(`
       create table if not exists Users(
       id serial primary key,
@@ -12,33 +12,28 @@ async function createTable(){
       );
 
       `);
-  }
-  catch(error){
+  } catch (error) {
     console.error("Database query failed:", error);
-  }
-  finally{
+  } finally {
     client.release();
   }
 }
 
 async function insertData(username: string, email: string, password: string) {
-        try {
+  try {
+    const insertQuery =
+      "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)";
+    const values = [username, email, password];
+    const res = await client.query(insertQuery, values);
+    console.log("Insertion success:", res);
+  } catch (err) {
+    console.error("Error during the insertion:", err);
+  }
+}
 
-          const insertQuery =
-            "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)";
-          const values = [username, email, password];
-          const res = await client.query(insertQuery, values);
-          console.log("Insertion success:", res);
-        } catch (err) {
-          console.error("Error during the insertion:", err);
-        }
-      }
-
-
-      async function getData() {
-        const res = await client.query("SELECT * FROM users");
-        console.log(res)
-        return res
-      }
+async function getData() {
+  const res = await client.query("SELECT * FROM users");
+  console.log(res);
+  return res;
+}
 export { createTable, getData, insertData };
-
