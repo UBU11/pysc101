@@ -39,7 +39,7 @@ app.get("/blog", async (c) => {
 app.post("/blog", async (c) => {
   try {
     const req = await c.req.json();
-    insertConetent(req.title, req.content, req.author, req.category, req.image);
+    insertConetent(req.title, req.content, req.author, req.category, req.image, req.reading_time);
     return c.text("Blog is posted");
   } catch (error) {
     console.error("querry is not listed or created", error);
@@ -53,5 +53,8 @@ app.notFound((c) => {
   return c.text("Error:404 ", 404);
 });
 
-serve(app);
-console.log(`Server is running on port 3000 http://localhost:3000`);
+serve({
+  fetch: app.fetch,
+  port: 5000,
+});
+console.log(`Server is running on port 5000 http://localhost:5000`);
