@@ -10,6 +10,7 @@ async function blogTable() {
       author varchar(255) not null,
       category varchar(255) not null,
       image varchar(255) not null,
+      reading_time integer not null,
       created_at timestamp default current_timestamp,
       updated_at timestamp default current_timestamp   /* created_at timestamp with time zone default current_timezone,
       updated_at timestamp with time zone default current_timezone */
@@ -27,12 +28,13 @@ async function insertConetent(
   content: string,
   author: string,
   category: string,
-  image: string
+  image: string,
+  reading_time: number
 ) {
   try {
     const insertQuery =
-      "INSERT INTO blog (title, content, author, category, image) VALUES ($1, $2, $3, $4, $5)";
-    const values = [title, content, author, category, image];
+      "INSERT INTO blog (title, content, author, category, image, reading_time) VALUES ($1, $2, $3, $4, $5,$6)";
+    const values = [title, content, author, category, image, reading_time];
     const result = await client.query(insertQuery, values);
     console.log("Insertion success:", result);
   } catch (error) {
