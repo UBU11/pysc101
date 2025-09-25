@@ -1,11 +1,10 @@
-import {MenubarDemo} from "@/components/navbar/Navbar";
-
+import PixelBlast from "./components/background/Pixelblast";
 
 function App() {
   return (
     <>
       <div className="bg-black h-screen">
-        <MenubarDemo />
+        <PixelBlast />
       </div>
     </>
   );
