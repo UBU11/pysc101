@@ -14,9 +14,7 @@ async function createTable() {
       `);
   } catch (error) {
     console.error("Database query failed:", error);
-  } finally {
-    client.release();
-  }
+  } 
 }
 
 async function insertData(username: string, email: string, password: string) {

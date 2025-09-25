@@ -1,9 +1,9 @@
 import { serve } from "@hono/node-server";
 import "dotenv/config";
 import { Hono } from "hono";
+import { blogTable, getBlogData, insertConetent } from "./DB/blog.model.js";
 import client from "./DB/db.js";
 import { createTable, getData, insertData } from "./DB/user.model.js";
-import { blogTable, insertConetent, getBlogData } from "./DB/blog.model.js";
 
 const app = new Hono({
   strict: false,
@@ -45,7 +45,7 @@ app.post("/blog", async (c) => {
     console.error("querry is not listed or created", error);
     return c.text("Failed to connect to database", 500);
   } finally {
-    client.release();
+    console.log("Blog is posted");
   }
 });
 
