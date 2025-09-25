@@ -1,11 +1,10 @@
-import PixelBlast from "./components/background/Pixelblast";
 
+import PixelBlast from "./components/background/pixelblast";
 function App() {
   return (
     <>
-      <div className="bg-black h-screen">
         <PixelBlast />
-      </div>
+
     </>
   );
 }
