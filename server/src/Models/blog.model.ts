@@ -1,4 +1,4 @@
-import client from "./db.js";
+import client from "../config/db.js";
 
 async function blogTable() {
   try {
@@ -51,4 +51,5 @@ async function getBlogData() {
   }
 }
 
-export { blogTable, insertConetent, getBlogData };
+export { blogTable, getBlogData, insertConetent };
+

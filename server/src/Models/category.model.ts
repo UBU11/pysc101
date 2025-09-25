@@ -1,4 +1,4 @@
-import client from "./db.js";
+import client from "../config/db.js";
 
 async function createCatgory() {
   try {
@@ -41,4 +41,5 @@ async function getCategoryData() {
   }
 }
 
-export { createCatgory, insertCategory, getCategoryData };
+export { createCatgory, getCategoryData, insertCategory };
+

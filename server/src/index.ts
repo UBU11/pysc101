@@ -1,9 +1,9 @@
 import { serve } from "@hono/node-server";
 import "dotenv/config";
 import { Hono } from "hono";
-import { blogTable, getBlogData, insertConetent } from "./DB/blog.model.js";
-import client from "./DB/db.js";
-import { createTable, getData, insertData } from "./DB/user.model.js";
+import client from "./config/db.js";
+import { blogTable, getBlogData, insertConetent } from "./Models/blog.model.js";
+import { createTable, getData, insertData } from "./Models/user.model.js";
 
 const app = new Hono({
   strict: false,

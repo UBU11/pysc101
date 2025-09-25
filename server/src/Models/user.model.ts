@@ -1,4 +1,4 @@
-import client from "./db.js";
+import client from "../config/db.js";
 
 async function createTable() {
   try {
@@ -14,7 +14,7 @@ async function createTable() {
       `);
   } catch (error) {
     console.error("Database query failed:", error);
-  } 
+  }
 }
 
 async function insertData(username: string, email: string, password: string) {
