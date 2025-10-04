@@ -1,8 +1,8 @@
-import { client } from "../config/db.js";
+import { client } from '../config/db.js';
 
 const blogcCard = async () => {
- try {
-   const query = `
+    try {
+        const query = `
      CREATE TABLE IF NOT EXISTS Post_Card(
        post_id SERIAL PRIMARY KEY  NOT NULL,
        Title VARCHAR(255) NOT NULL,
@@ -15,18 +15,36 @@ const blogcCard = async () => {
 
   ) `;
 
-   const result = await client.query(query);
-   console.log("Table created successfully:", result);
- } catch (error) {
-
-  console.error("Error creating table:", error);
-
- }
+        const result = await client.query(query);
+        console.log('Table created successfully:', result);
+    } catch (error) {
+        console.error('Error creating table:', error);
+    } finally {
+        client.release();
+    }
 };
 
+const cardAdd = async (
+    Title: string,
+    Content: string,
+    Image_URL: string,
+    Tags: string[],
+    Reading_Time: string,
+) => {
+    try {
+        const insertQuery = `
+       INSERT INTO Post_Card (Title, Content, Image_URL, Tags, Reading_Time)
+       VALUES ($1, $2, $3, $4, $5) `;
+        const values = [Title, Content, Image_URL, Tags, Reading_Time];
+        const result = await client.query(insertQuery, values);
+        console.log('Card added successfully:', result);
+        return true;
+    } catch (error) {
+        console.error('Error adding card:', error);
+        return false;
+    } finally {
+        client.release();
+    }
+};
 
-
-
-
-
-export { blogcCard }
+export { blogcCard, cardAdd };
