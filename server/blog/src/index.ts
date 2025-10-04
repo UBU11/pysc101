@@ -8,8 +8,7 @@ const app = new Hono({ strict: false });
 app.use(prettyJSON());
 
 app.get('/', (c) => {
-    blogcCard();
-    return c.text('Hello Hono!');
+    return c.text('checking!');
 });
 
 app.post('/post', async (c) => {
@@ -18,6 +17,11 @@ app.post('/post', async (c) => {
     return c.text('Card added  succesfully');
 });
 
+
+app.post("/test",async(c)=>{
+  const body = await c.req.text();
+  return c.text(`Received body: ${body}`);
+})
 serve(
     {
         fetch: app.fetch,

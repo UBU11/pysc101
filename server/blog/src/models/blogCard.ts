@@ -21,6 +21,7 @@ const blogcCard = async () => {
         console.error('Error creating table:', error);
     } finally {
         client.release();
+        
     }
 };
 
