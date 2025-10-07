@@ -14,7 +14,7 @@ app.get('/', (c) => {
 app.post('/post', async (c) => {
     const { Title, Content, Image_URL, Tags, Reading_Time } = await c.req.json();
     const result = cardAdd(Title, Content, Image_URL, Tags, Reading_Time);
-    return c.text('Card added  succesfully');
+    return c.json(result);
 });
 
 
