@@ -1,14 +1,15 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
-import { blogcCard, cardAdd } from './models/blogCard.js';
+import { cors } from 'hono/cors';
 import { prettyJSON } from 'hono/pretty-json';
+import { cardAdd } from './models/blogCard.js';
 
 const app = new Hono({ strict: false });
-
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(prettyJSON());
 
 app.get('/', (c) => {
-    return c.text('checking!');
+    return c.text('Connected');
 });
 
 app.post('/post', async (c) => {
@@ -17,11 +18,10 @@ app.post('/post', async (c) => {
     return c.json(result);
 });
 
-
-app.post("/test",async(c)=>{
-  const body = await c.req.text();
-  return c.text(`Received body: ${body}`);
-})
+app.post('/test', async (c) => {
+    const body = await c.req.text();
+    return c.text(`Received body: ${body}`);
+});
 serve(
     {
         fetch: app.fetch,
