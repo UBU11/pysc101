@@ -1,4 +1,4 @@
-import TiltedCard from "@/components/card/Card";
+      import TiltedCard from "@/components/card/Card";
 
 export default function Galery() {
 
