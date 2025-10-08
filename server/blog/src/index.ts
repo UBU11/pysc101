@@ -2,14 +2,18 @@ import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { prettyJSON } from 'hono/pretty-json';
-import { cardAdd } from './models/blogCard.js';
+import { cardAdd, selectBlog } from './models/blogCard.js';
 
 const app = new Hono({ strict: false });
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(prettyJSON());
 
-app.get('/', (c) => {
-    return c.text('Connected');
+app.get('/api/get', async(c) => {
+    const postId = Number(c.req.query('postId'));
+    console.log(postId);
+    const result = await selectBlog(postId);
+    console.log(result);
+    return c.json(result);
 });
 
 app.post('/post', async (c) => {

@@ -33,4 +33,6 @@ const addCategory = async (category_name: string, Category_items: number) => {
 };
 
 
+
+
  export { CategoryTable, addCategory };

@@ -21,7 +21,7 @@ const blogcCard = async () => {
         console.error('Error creating table:', error);
     } finally {
         client.release();
-        
+
     }
 };
 
@@ -48,4 +48,13 @@ const cardAdd = async (
     }
 };
 
-export { blogcCard, cardAdd };
+
+const selectBlog = async (postId: number) =>{
+    const query = ` Select * from Post_Card where post_id = $1`;
+    const value = [postId];
+    const result = await client.query(query,value);
+    console.log('Blog selected successfully:', result.rows[0]);
+    return result.rows[0];
+}
+
+export { blogcCard, cardAdd, selectBlog};
