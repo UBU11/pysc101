@@ -9,10 +9,12 @@ export default function Galery() {
 
   useEffect(() => {
     const getUser = async () =>
-      axios
-        .get("http://localhost:3000/api/get?postId=11")
+      axios({
+        method: "get",
+        url: "http://localhost:3000/api/get",
+      })
         .then((res) => {
-          setTitle(res.data.title);
+          console.log(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -27,7 +29,10 @@ export default function Galery() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ml-32">
       <TiltedCard
-        imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+        imageSrc={
+          image ||
+          "https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+        }
         altText="Kendrick Lamar - GNX Album Cover"
         captionText="Kendrick Lamar - GNX"
         containerHeight="300px"
@@ -51,7 +56,10 @@ h-full w-full bg-violet-400 rounded-2xl bg-clip-padding backdrop-filter backdrop
       />
 
       <TiltedCard
-        imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+        imageSrc={
+          image ||
+          "https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+        }
         altText="Kendrick Lamar - GNX Album Cover"
         captionText="Kendrick Lamar - GNX"
         containerHeight="300px"
@@ -75,7 +83,10 @@ h-full w-full bg-violet-400 rounded-2xl bg-clip-padding backdrop-filter backdrop
       />
 
       <TiltedCard
-        imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+        imageSrc={
+          image ||
+          "https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+        }
         altText="Kendrick Lamar - GNX Album Cover"
         captionText="Kendrick Lamar - GNX"
         containerHeight="300px"
@@ -99,7 +110,10 @@ h-full w-full bg-violet-400 rounded-2xl bg-clip-padding backdrop-filter backdrop
       />
 
       <TiltedCard
-        imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+        imageSrc={
+          image ||
+          "https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+        }
         altText="Kendrick Lamar - GNX Album Cover"
         captionText="Kendrick Lamar - GNX"
         containerHeight="300px"
@@ -123,7 +137,10 @@ h-full w-full bg-violet-400 rounded-2xl bg-clip-padding backdrop-filter backdrop
       />
 
       <TiltedCard
-        imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+        imageSrc={
+          image ||
+          "https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+        }
         altText="Kendrick Lamar - GNX Album Cover"
         captionText="Kendrick Lamar - GNX"
         containerHeight="300px"
@@ -147,7 +164,10 @@ h-full w-full bg-violet-400 rounded-2xl bg-clip-padding backdrop-filter backdrop
       />
 
       <TiltedCard
-        imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+        imageSrc={
+          image ||
+          "https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+        }
         altText="Kendrick Lamar - GNX Album Cover"
         captionText="Kendrick Lamar - GNX"
         containerHeight="300px"
