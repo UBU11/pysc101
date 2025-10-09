@@ -21,7 +21,17 @@ const blogcCard = async () => {
         console.error('Error creating table:', error);
     } finally {
         client.release();
+    }
+};
 
+const getCard = async () => {
+    try {
+        const query = `SELECT * FROM Post_Card`;
+        const result = await client.query(query);
+        return result.rows;
+    } catch (error) {
+        console.log('The retrival is not possible for this card', error);
+        return [];
     }
 };
 
@@ -48,13 +58,12 @@ const cardAdd = async (
     }
 };
 
-
-const selectBlog = async (postId: number) =>{
+const selectBlog = async (postId: number) => {
     const query = ` Select * from Post_Card where post_id = $1`;
     const value = [postId];
-    const result = await client.query(query,value);
+    const result = await client.query(query, value);
     console.log('Blog selected successfully:', result.rows[0]);
     return result.rows[0];
-}
+};
 
-export { blogcCard, cardAdd, selectBlog};
+export { blogcCard, cardAdd, getCard, selectBlog };
