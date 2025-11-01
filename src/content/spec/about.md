@@ -17,4 +17,4 @@ Whether you’re interested in understanding **why we think, feel, and act** the
 
 
 ---
-::github{repo="UBU11/psyc101"}
+<!-- ::github{repo="UBU11/psyc101"} -->
