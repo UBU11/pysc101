@@ -11,8 +11,8 @@ Whether you’re interested in understanding **why we think, feel, and act** the
 
 ---
 
-> “Knowing yourself is the beginning of all wisdom”
-> — *Aristotle*
+> “Know all the theories, master all the techniques, but as you touch a human soul be just another human soul - carl jung”
+> — *Carl Jung*
 
 
 
