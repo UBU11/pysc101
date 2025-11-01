@@ -2,7 +2,7 @@
 title: test
 published: 2025-11-01
 description: 'nothing just for test purpose'
-image: '/src/assets/images/house.jpg'
+image: './house.jpg'
 tags: [dev]
 category: 'development'
 draft: false
