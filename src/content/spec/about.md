@@ -11,7 +11,7 @@ Whether you’re interested in understanding **why we think, feel, and act** the
 
 ---
 
-> “Know all the theories, master all the techniques, but as you touch a human soul be just another human soul - carl jung”
+> “Know all the theories, master all the techniques, but as you touch a human soul be just another human soul”
 > — *Carl Jung*
 
 
