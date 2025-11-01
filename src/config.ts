@@ -72,7 +72,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "Discord",
 			icon: "fa6-brands:discord",
-			url: "https://store.steampowered.com",
+			url: "https://discordapp.com/users/701417475782213642",
 		},
 
 	],
